@@ -1,7 +1,10 @@
 // add whatever parameters you deem necessary & write doc comment
 
 /**  Frequency counter
-*/
+ */ //TODO: what i take and what i return
+/** Accepts a string or array of items and returns the frequency of each item
+ * in items
+ */
 function getFrequencyCounter(items) {
   const freqs = {};
 
@@ -15,16 +18,14 @@ function getFrequencyCounter(items) {
 
 /** Accepts two strings: word and letters.
  *  Returns true if the word can be built with the letters; otherwise, returns false.
-*/
-function canConstructWord(word, letters) {
-
-  if (letters.length < word.length) return false;
+ */ //TODO: change name of letters to available letters
+function canConstructWord(word, availLetters) {
+  if (availLetters.length < word.length) return false;
 
   const wordFreq = getFrequencyCounter(word);
-  const lettersFreq = getFrequencyCounter(letters);
+  const lettersFreq = getFrequencyCounter(availLetters);
 
   for (let key in wordFreq) {
-
     if (!key in lettersFreq) {
       return false;
     }
@@ -35,7 +36,4 @@ function canConstructWord(word, letters) {
   }
 
   return true;
-
 }
-
-
